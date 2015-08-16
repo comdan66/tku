@@ -6,18 +6,26 @@
 @import "_oa";
 
 @include font-face("Monaco", font-files("monaco/monaco.ttf", "monaco/monaco.otf"));
-// @include font-face("icomoon", font-files("icomoon/icomoon.eot", "icomoon/icomoon.woff", "icomoon/icomoon.ttf", "icomoon/icomoon.svg"));
-// [class^="icon-"], [class*=" icon-"] {
-//   font-family: 'icomoon';
-//   speak: none;
-//   font-style: normal;
-//   font-weight: normal;
-//   font-variant: normal;
-//   text-transform: none;
-//   line-height: 1;
 
-//   @include font-smoothing(antialiased);
-// }
+@include font-face("icomoon", font-files("icomoon/icomoon.eot", "icomoon/icomoon.woff", "icomoon/icomoon.ttf", "icomoon/icomoon.svg"));
+[class^="icon-"], [class*=" icon-"] {
+  font-family: 'icomoon';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  @include font-smoothing(antialiased);
+}
+
+.icon-menu:before {
+  content: "\e600";
+}
+.icon-home:before {
+  content: "\e601";
+}
 
 * {
   &, &:after, &:before {
@@ -39,8 +47,8 @@ html {
     width: 100%;
     height: 100%;
     font-size: medium;
-    font-family: Monaco, "微軟正黑體", "Microsoft JhengHei";
-    background: $mainBackgroundColor $mainBackgroundImage;
+    font-family: Gafata, Monaco, "微軟正黑體", "Microsoft JhengHei";
+    background: rgba(250, 250, 220, 1);
     color: rgba(50, 50, 50, 0.8);
 
     @include font-smoothing(antialiased);
