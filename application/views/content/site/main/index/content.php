@@ -4,6 +4,7 @@
   <label class='fi-mr'>
     <div>
       <a href='https://www.facebook.com/comdan66' target='_blank'>網站作者</a>
+      <a href='comdan66.github.io' target='_blank'>作者作品</a>
       <a href='https://github.com/comdan66/tku' target='_blank'>GitHub</a>
       <a id='fb' data-url='<?php echo current_url ();?>'>臉書分享</a>
     </div>
