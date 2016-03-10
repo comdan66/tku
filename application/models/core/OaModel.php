@@ -2,12 +2,31 @@
 
 /**
  * @author      OA Wu <comdan66@gmail.com>
- * @copyright   Copyright (c) 2015 OA Wu Design
+ * @copyright   Copyright (c) 2016 OA Wu Design
  */
 class OaModel extends ActiveRecordModel {
 
   public function __construct ($attributes = array (), $guard_attributes = TRUE, $instantiating_via_find = FALSE, $new_record = TRUE) {
     parent::__construct ($attributes, $guard_attributes, $instantiating_via_find, $new_record);
+  }
+
+  public static function addConditions (&$conditions, $str) {
+    $args = array_filter (func_get_args (), function ($t) {
+      return $t !== null;
+    });
+    $args = array_splice($args, !isset ($conditions) ? 1 : 2, 3);
+
+    if (!isset($conditions) || !array_filter($conditions))
+      $conditions = array();
+
+    if (!$conditions)
+      $conditions[0] = '(' . $str . ')';
+    else
+      $conditions[0] .= ' AND (' . $str . ')';
+
+    foreach ($args as $arg)
+      if ($arg !== null)
+        array_push($conditions, $arg);
   }
 
   public function recycle () {

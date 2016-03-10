@@ -2,11 +2,11 @@
 
 /**
  * @author      OA Wu <comdan66@gmail.com>
- * @copyright   Copyright (c) 2015 OA Wu Design
+ * @copyright   Copyright (c) 2016 OA Wu Design
  */
 
   //       file     type         name              action
   // =============================================================
   // php   init
 
-  include 'command/init.php';
+  include 'system/cmd/init.php';
