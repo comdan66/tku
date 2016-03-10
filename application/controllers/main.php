@@ -12,12 +12,6 @@ class Main extends Site_controller {
       $cam = null;
     $title = ($cam ? $cam->title : '淡江大學') . '即時影像';
 
-    if ($cam)
-      $this->add_meta (array ('property' => 'og:image', 'content' => $img = $cam->pic->name->url (), 'alt' => "OA's TKU 即時看！"))
-           ->add_meta (array ('property' => 'og:image:type', 'tag' => '320x240', 'content' => 'image/' . pathinfo ($img, PATHINFO_EXTENSION)))
-           ->add_meta (array ('property' => 'og:image:width', 'content' => '320'))
-           ->add_meta (array ('property' => 'og:image:height', 'content' => '240'));
-
     $this->set_title ($title . " - OA's TKU 即時看！")
          ->add_js (base_url ('resource', 'javascript', 'jquery-timeago_v1.3.1', 'jquery.timeago.js'))
          ->add_js (base_url ('resource', 'javascript', 'jquery-timeago_v1.3.1', 'locales', 'jquery.timeago.zh-TW.js'))
