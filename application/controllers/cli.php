@@ -86,6 +86,6 @@ class Cli extends Site_controller {
     else
       $log->finish (json_encode ($returns));
 
-    // return @unlink ($path);
+    return @unlink ($path);
   }
 }
