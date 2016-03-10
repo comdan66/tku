@@ -11,15 +11,14 @@ $(function () {
   $('.fi-mr').click (function () {
     $(this).toggleClass ('s');
   });
-  var i = 1,z = 0;
+  var i = 0,z = 0, $img = $body.find ('>figure>a>img'), $t = $body.find ('>figure>figcaption>time');
 
   setInterval (function () {
-    var a = $body.find ('>figure>a>img:nth-child(' + i + ')');
-    if (z > 0)
-      a.css ('z-index', z);
-    i = (i % $body.find ('>figure>a>img').length) + 1;
-    a = $body.find ('>figure>a>img:nth-child(' + i + ')');
-    z = a.css ('z-index');
-    a.css ({'z-index': 998});
+    var $a = $img.eq (i);
+    if (z > 0) $a.css ('z-index', z);
+    i = ++i % $body.find ('>figure>a>img').length;
+    $a = $img.eq (i);
+    z = $a.css ('z-index');
+    $t.html ($.timeago (r = $a.css ({'z-index': 998}).data ('time')) + '<br/>' + r);
   }, 1000);
 });
