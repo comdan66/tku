@@ -1,6 +1,6 @@
 <header>
   <a class='fi-m'></a>
-  <div>sd</div>
+  <div><?php echo $title;?></div>
   <label class='fi-mr'>
     <div>
       <a href=''>GitHub</a>
@@ -14,7 +14,7 @@
   <a href='<?php echo base_url ();?>' class='fi-h'>首頁</a>
   <?php
   foreach ($cams = Cam::find ('all', array ('include' => array ('pic'), 'conditions' => array ('is_enabled = ?', Cam::IS_ENABLED))) as $cam) { ?>
-    <a href='<?php echo base_url ($cam->id);?>' class='fi-m'><?php echo $cam->title;?></a>
+    <a href='<?php echo base_url ($cam->id);?>' class='icon-pin_drop'><?php echo $cam->title;?></a>
 <?php
   }
   ?>
