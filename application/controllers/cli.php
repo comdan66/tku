@@ -35,7 +35,16 @@ class Cli extends Site_controller {
       });
   }
   public function update () {
-    $log = CrontabLog::start ('每 30 秒更新所有地點');
+    $log = CrontabLog::start ('每 1 分鐘更新所有地點');
+    $path = FCPATH . 'temp/hi.text';
+
+    if (file_exists ($path)) {
+      return $log->error ('上一次還沒完成！');
+    }
+
+    $this->load->helper ('file');
+    write_file ($path, 'Hi!');
+
     $cams = Cam::find ('all', array ('select' => 'id, url'));
 
     $returns = array_map (function ($cam) {
@@ -49,8 +58,10 @@ class Cli extends Site_controller {
     }, $cams);
 
     if (count ($cams) != count (array_filter ($returns, function ($r) { return $r['result']; })))
-      return $log->error ('未完全執行完更新！ Data: ' . json_encode ($returns));
+      $log->error ('未完全執行完更新！ Data: ' . json_encode ($returns));
     else
-      return $log->finish (json_encode ($returns));
+      $log->finish (json_encode ($returns));
+
+    return @unlink ($path);
   }
 }
