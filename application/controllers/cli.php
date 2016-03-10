@@ -56,6 +56,13 @@ class Cli extends Site_controller {
             ));
   }
 
+  public function clean_query ($psw) {
+    $log = CrontabLog::start ('每 30 分鐘，清除 query logs');
+    $this->load->helper ('file');
+    write_file (FCPATH . 'application/logs/query.log', '', FOPEN_READ_WRITE_CREATE_DESTRUCTIVE);
+    $log->finish ();
+  }
+
   public function update () {
     $log = CrontabLog::start ('每 1 分鐘更新所有地點');
     $path = FCPATH . 'temp/hi.text';
