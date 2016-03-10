@@ -13,7 +13,7 @@ class Main extends Site_controller {
     $title = ($cam ? $cam->title : '淡江大學') . '即時影像';
 
     if ($cam)
-      $this->add_meta (array ('property' => 'og:image', 'content' => $img = $pic->name->url (), 'alt' => "OA's TKU 即時看！"))
+      $this->add_meta (array ('property' => 'og:image', 'content' => $img = $cam->pic->name->url (), 'alt' => "OA's TKU 即時看！"))
            ->add_meta (array ('property' => 'og:image:type', 'tag' => 'larger', 'content' => 'image/' . pathinfo ($img, PATHINFO_EXTENSION)))
            ->add_meta (array ('property' => 'og:image:width', 'content' => '320'))
            ->add_meta (array ('property' => 'og:image:height', 'content' => '240'));
