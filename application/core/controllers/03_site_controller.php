@@ -16,7 +16,7 @@ class Site_controller extends Oa_controller {
          ->set_content_path ('content', 'site')
          ->set_public_path ('public')
 
-         ->set_title ("OA's CI")
+         ->set_title ("OA's TKU 即時看！")
 
          ->_add_meta ()
          ->_add_css ()
@@ -25,7 +25,8 @@ class Site_controller extends Oa_controller {
   }
 
   private function _add_meta () {
-    return $this;
+    return $this->add_meta (array ('name' => 'viewport', 'content' => 'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui'))
+                ;
   }
 
   private function _add_css () {

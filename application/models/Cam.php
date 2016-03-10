@@ -10,6 +10,7 @@ class Cam extends OaModel {
   static $table_name = 'cams';
 
   static $has_one = array (
+    array ('pic', 'class_name' => 'CamPic'),
   );
 
   static $has_many = array (

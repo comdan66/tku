@@ -10,7 +10,7 @@
 <?php echo isset ($js_list) ? $js_list : ''; ?>
 
   </head>
-  <body lang="zh-tw">
+  <body lang="zh-tw" class='ms'>
     <?php echo isset ($hidden_list) ? $hidden_list : ''; ?>
 
     <?php echo isset ($content) ? $content : ''; ?>
