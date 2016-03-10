@@ -13,12 +13,12 @@ $(function () {
   });
   var i = 0,z = 0, $img = $body.find ('>figure>a>img'), $t = $body.find ('>figure>figcaption>time');
 
-  // setInterval (function () {
-  //   var $a = $img.eq (i);
-  //   if (z > 0) $a.css ('z-index', z);
-  //   i = ++i % $body.find ('>figure>a>img').length;
-  //   $a = $img.eq (i);
-  //   z = $a.css ('z-index');
-  //   $t.html ($.timeago (r = $a.css ({'z-index': 998}).data ('time')) + '<br/>' + r);
-  // }, 1000);
+  setInterval (function () {
+    var $a = $img.eq (i);
+    if (z > 0) $a.css ('z-index', z);
+    i = ++i % $body.find ('>figure>a>img').length;
+    $a = $img.eq (i);
+    z = $a.css ('z-index');
+    $t.html ($.timeago (r = $a.css ({'z-index': 998}).data ('time')) + '<br/>' + r);
+  }, 1000);
 });
