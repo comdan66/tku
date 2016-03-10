@@ -14,7 +14,7 @@ class Main extends Site_controller {
 
     if ($cam)
       $this->add_meta (array ('property' => 'og:image', 'content' => $img = $cam->pic->name->url (), 'alt' => "OA's TKU 即時看！"))
-           ->add_meta (array ('property' => 'og:image:type', 'tag' => 'larger', 'content' => 'image/' . pathinfo ($img, PATHINFO_EXTENSION)))
+           ->add_meta (array ('property' => 'og:image:type', 'tag' => '320x240', 'content' => 'image/' . pathinfo ($img, PATHINFO_EXTENSION)))
            ->add_meta (array ('property' => 'og:image:width', 'content' => '320'))
            ->add_meta (array ('property' => 'og:image:height', 'content' => '240'));
 
