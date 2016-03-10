@@ -7,6 +7,15 @@
 
 class Main extends Site_controller {
 
+  public function clear () {
+    $path = FCPATH . 'temp/hi.text';
+    @unlink ($path);
+    if (file_exists ($path))
+      echo "OK";
+    else
+      echo "NO";
+  }
+
   public function index ($id = 0) {
     if (!($id && ($cam = Cam::find ('one', array ('conditions' => array ('is_enabled = ? AND id = ?', Cam::IS_ENABLED, $id))))))
       $cam = null;
