@@ -25,7 +25,7 @@
   if ($c) { ?>
     <figure>
       <a href='<?php echo base_url ($c->id);?>'>
-    <?php foreach (CamPic::find ('all', array ('limit' => 60, 'order' => 'id DESC', 'conditions' => array ('cam_id = ?', $c->id))) as $pic) { ?>
+    <?php foreach (array_reverse (CamPic::find ('all', array ('limit' => 60, 'order' => 'id DESC', 'conditions' => array ('cam_id = ?', $c->id)))) as $pic) { ?>
             <img data-time='<?php echo $pic->created_at->format ('Y-m-d H:i:s');?>' alt="<?php echo $c->title;?> - OA's TKU 即時看！" src='<?php echo $pic->name->url ();?>' />
     <?php } ?>
       </a>
